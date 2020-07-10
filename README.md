@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+Express is a light framework that runs on Node.js.
+It can be used to make web applications, APIS, or serve static content.
+
 - [ ] Describe Middleware?
+
+Middleware is a function that runs before continuing on to the logic defined in the route. You may want to verify a token or id before acting on a resource
 
 - [ ] Describe a Resource?
 
+A resource is a piece of data in your database or server. An image, object with data, etc.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+An API can return a status code and a message to let them know it went well
+
 - [ ] How can we partition our application into sub-applications?
+      We can use the router function from express which creates a sub router for our requests with a prefixed url string defined in the index router.
 
 ## Minimum Viable Product
 
