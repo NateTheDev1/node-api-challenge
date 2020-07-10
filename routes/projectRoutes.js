@@ -41,6 +41,20 @@ router.put("/:id", verifyId, (req, res) => {
     });
 });
 
+router.delete("/:id", verifyId, (req, res) => {
+  Projects.remove(req.params.id)
+    .then((data) => {
+      if (data > 0) {
+        res
+          .status(202)
+          .json({ message: "Resource Deleted", deleted: req.previousResource });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({ error: "Error deleting resource", err: err });
+    });
+});
+
 function verifyProject(req, res, next) {
   const { name, description } = req.body;
   if (name && description) {
@@ -63,6 +77,7 @@ function verifyId(req, res, next) {
           error: `Could not find project with an id of ${id}`,
         });
       }
+      req.previousResource = data;
       next();
     })
     .catch((err) => {
