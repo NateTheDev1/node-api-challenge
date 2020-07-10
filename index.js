@@ -19,6 +19,8 @@ server.use(express.json());
 
 const projectRoutes = require("./routes/projectRoutes");
 server.use("/api/projects", projectRoutes);
+const actionRoutes = require("./routes/actionRoutes");
+server.use("/api/actions", actionRoutes);
 
 server.get("/", (req, res) => {
   res.json("Welcome to Node API Sprint Challenge - 1");
